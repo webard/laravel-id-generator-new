@@ -38,14 +38,13 @@ For Laravel 9+, the package will be auto-discovered. Otherwise, register the ser
 Generate an ID with a **prefix and suffix and padding**:
 
 ```php
-use VendorName\IdGenerator\Facades\IdGeneratorFactory;
+use VendorName\LaravelIdGenerator\IdGenerator;
 use App\Models\User;
 
-$id = IdGeneratorFactory::generate(User::class, 'custom_id', 5, 'USR-', '-2024');
+$id = IdGenerator::generate(User::class, 'custom_id', 5, 'USR-', '-2024');
 
 echo $id; // USR-00001-2024
 ```
-
 
 ### Dynamic Placeholders
 - `{DATE}` → `2025-02-28`
@@ -53,7 +52,7 @@ echo $id; // USR-00001-2024
 - `{YEAR}` → `2025`
 
 ```php
-$id = IdGeneratorFactory::generate(User::class, 'custom_id', 5, 'INV-{YEAR}-', '');
+$id = IdGenerator::generate(User::class, 'custom_id', 5, 'INV-{YEAR}-');
 echo $id; // INV-2025-00001
 ```
 
