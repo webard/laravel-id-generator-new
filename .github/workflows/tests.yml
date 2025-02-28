@@ -47,4 +47,4 @@ jobs:
           composer require --dev "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "phpunit/phpunit:${{ matrix.phpunit }}" --no-interaction --no-update
 
       - name: Execute tests
-        run: vendor/bin/phpunit
+        run: ./vendor/bin/phpunit
