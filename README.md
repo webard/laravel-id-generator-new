@@ -2,7 +2,7 @@
 # Laravel ID Generator Factory
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/omaressaouaf/laravel-id-generator.svg)](https://packagist.org/packages/vendor-name/id-generator)
-[![License](https://img.shields.io/github/license/vendor-name/id-generator)](LICENSE)
+[![License](https://img.shields.io/github/license/omaressaouaf/laravel-id-generator)](LICENSE)
 [![Tests](https://github.com/omaressaouaf/laravel-id-generator/actions/workflows/tests.yml/badge.svg)](https://github.com/omaressaouaf/laravel-id-generator/actions/workflows/tests.yml)
 
 A Laravel package for generating **custom auto-incrementing IDs** with prefixes, suffixes, and date-based placeholders.
