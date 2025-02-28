@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          ref: main
 
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1
