@@ -71,4 +71,4 @@ composer test
 
 ## 📜 License
 
-This package is licensed under the [MIT License](https://github.com/omaressaouaf/laravel-id-generator/LICENSE.md).
+This package is licensed under the [MIT License](https://github.com/omaressaouaf/laravel-id-generator/LICENSE).
