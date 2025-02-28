@@ -1,7 +1,7 @@
 
 # Laravel ID Generator Factory
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/omaressaouaf/laravel-id-generator.svg)](https://packagist.org/packages/vendor-name/id-generator)
+[![Latest Stable Version](https://img.shields.io/packagist/v/omaressaouaf/laravel-id-generator.svg)](https://packagist.org/packages/omaressaouaf/laravel-id-generator)
 [![License](https://img.shields.io/github/license/omaressaouaf/laravel-id-generator)](LICENSE)
 [![Tests](https://github.com/omaressaouaf/laravel-id-generator/actions/workflows/tests.yml/badge.svg)](https://github.com/omaressaouaf/laravel-id-generator/actions/workflows/tests.yml)
 
@@ -38,7 +38,7 @@ For Laravel 9+, the package will be auto-discovered. Otherwise, register the ser
 Generate an ID with a **prefix and suffix and padding**:
 
 ```php
-use VendorName\LaravelIdGenerator\IdGenerator;
+use Omaressaouaf\LaravelIdGenerator\IdGenerator;
 use App\Models\User;
 
 $id = IdGenerator::generate(User::class, 'custom_id', 5, 'USR-', '-2024');
