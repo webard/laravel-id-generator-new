@@ -1,7 +1,7 @@
 {
     "name": "omaressaouaf/laravel-id-generator",
     "version": "1.0.0",
-    "description": "Generate custom incremental unique ids for your laravel app",
+    "description": "Generate custom incremental unique ids for Laravel",
     "keywords": [
         "omaressaouaf",
         "laravel",
