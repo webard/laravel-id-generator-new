@@ -8,15 +8,13 @@ on:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest]
-        php: [8.4, 8.3, 8.1]
+        php: [8.4, 8.3, 8.2]
         laravel: [12.*, 11.*, 10.*]
-        stability: [prefer-lowest, prefer-stable]
         phpunit: [11.5, 10.5, 10.5]
         include:
           - laravel: 12.*
@@ -26,7 +24,7 @@ jobs:
           - laravel: 10.*
             testbench: 8.*
 
-    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
+    name: PHP:${{ matrix.php }} - Laravel:${{ matrix.laravel }} - PHPUnit:${{ matrix.phpunit }}
 
     steps:
       - name: Checkout code
