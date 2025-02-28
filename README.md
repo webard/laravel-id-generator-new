@@ -41,7 +41,7 @@ Generate an ID with a **prefix and suffix and padding**:
 use Omaressaouaf\LaravelIdGenerator\IdGenerator;
 use App\Models\User;
 
-$id = IdGenerator::generate(model: User::class, field: 'number', paddingLength: 5, prefix: 'INV-', suffix: '-2024');
+$id = IdGenerator::generate(User::class, 'column_name', 5, 'INV-', '-2024');
 
 echo $id; // USR-00001-2024
 ```
@@ -52,7 +52,7 @@ echo $id; // USR-00001-2024
 - `{YEAR}` → `2025`
 
 ```php
-$id = IdGenerator::generate(User::class, 'number', 5, 'INV-{YEAR}-');
+$id = IdGenerator::generate(User::class, 'column_name', 5, 'INV-{YEAR}-');
 echo $id; // INV-2025-00001
 ```
 
