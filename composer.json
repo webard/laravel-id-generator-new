@@ -1,0 +1,22 @@
+{
+    "name": "omaressaouaf/laravel-id-generator",
+    "version": "1.0.0",
+    "description": "Generate custom incremental unique ids for your laravel app",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Omaressaouaf\\LaravelIdGenerator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Omar Essaouaf",
+            "email": "souafomar@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "orchestra/testbench": "^10.0"
+    }
+}
