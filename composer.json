@@ -2,21 +2,53 @@
     "name": "omaressaouaf/laravel-id-generator",
     "version": "1.0.0",
     "description": "Generate custom incremental unique ids for your laravel app",
+    "keywords": [
+        "omaressaouaf",
+        "laravel",
+        "laravel-id-generator"
+    ],
     "type": "library",
+    "homepage": "https://github.com/omaressaouaf/laravel-id-generator",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Omaressaouaf\\LaravelIdGenerator\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Omar Essaouaf",
             "email": "souafomar@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Omaressaouaf\\LaravelIdGenerator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Omaressaouaf\\LaravelIdGenerator\\Database\\": "database/",
+            "Omaressaouaf\\LaravelIdGenerator\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-f": "vendor/bin/phpunit --filter"
+    },
+    "require": {
+        "php": "^8.2|^8.3|^8.4",
+        "illuminate/contracts": "^10.0||^11.0||^12.0"
+    },
     "require-dev": {
-        "orchestra/testbench": "^10.0"
-    }
+        "orchestra/testbench": "^10.0",
+        "phpunit/phpunit": "11.5.x-dev"
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "Omaressaouaf\\LaravelIdGenerator\\IdGeneratorServiceProvider"
+            ],
+            "aliases": {
+                "IdGenerator": "Omaressaouaf\\LaravelIdGenerator\\IdGenerator"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
