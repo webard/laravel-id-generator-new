@@ -3,7 +3,6 @@
 namespace Omaressaouaf\LaravelIdGenerator\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Omaressaouaf\LaravelIdGenerator\IdGeneratorServiceProvider;
 
