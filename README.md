@@ -41,9 +41,9 @@ Generate an ID with a **prefix and suffix and padding**:
 use Omaressaouaf\LaravelIdGenerator\IdGenerator;
 use App\Models\User;
 
-$id = IdGenerator::generate(User::class, 'column_name', 5, 'INV-', '-2024');
+$id = IdGenerator::generate(Invoice::class, 'column_name', 5, 'INV-', '-2024');
 
-echo $id; // USR-00001-2024
+echo $id; // INV-00001-2024
 ```
 
 ### Dynamic Placeholders
