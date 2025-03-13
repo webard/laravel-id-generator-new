@@ -22,14 +22,6 @@ Install via Composer:
 composer require omaressaouaf/laravel-id-generator
 ```
 
-For Laravel 9+, the package will be auto-discovered. Otherwise, register the service provider in `config/app.php`:
-
-```php
-'providers' => [
-    Omaressaouaf\LaravelIdGenerator\IdGeneratorServiceProvider::class,
-],
-```
-
 ---
 
 ## 📌 Usage
