@@ -1,9 +1,9 @@
 <?php
 
-namespace Omaressaouaf\LaravelIdGenerator\Database\Factories;
+namespace Omaressaouaf\LaravelIdGenerator\Tests\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Omaressaouaf\LaravelIdGenerator\Models\TestModel;
+use Omaressaouaf\LaravelIdGenerator\Tests\Models\TestModel;
 
 class TestModelFactory extends Factory
 {

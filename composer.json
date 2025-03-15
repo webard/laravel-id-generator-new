@@ -23,7 +23,6 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Omaressaouaf\\LaravelIdGenerator\\Database\\Factories\\": "database/factories/",
             "Omaressaouaf\\LaravelIdGenerator\\Tests\\": "tests/"
         }
     },

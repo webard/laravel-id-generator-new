@@ -3,10 +3,10 @@
 namespace Omaressaouaf\LaravelIdGenerator\Tests\Unit;
 
 use Carbon\Carbon;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Omaressaouaf\LaravelIdGenerator\IdGenerator;
-use Omaressaouaf\LaravelIdGenerator\Models\TestModel;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Omaressaouaf\LaravelIdGenerator\Tests\TestCase;
+use Omaressaouaf\LaravelIdGenerator\Tests\Models\TestModel;
 
 class IdGeneratorTest extends TestCase
 {
