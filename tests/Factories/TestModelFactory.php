@@ -12,7 +12,7 @@ class TestModelFactory extends Factory
     public function definition()
     {
         return [
-            'custom_id' => 'test-00001'
+            'custom_id' => 'test-00001',
         ];
     }
 }

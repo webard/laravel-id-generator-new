@@ -18,12 +18,12 @@ class TestCase extends \Orchestra\Testbench\TestCase
     {
         config()->set('database.default', 'testing');
         config()->set('database.connections.testing', [
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => ':memory:',
-            'prefix'   => '',
+            'prefix' => '',
         ]);
 
-        foreach (File::allFiles(__DIR__ . '/Migrations') as $migration) {
+        foreach (File::allFiles(__DIR__.'/Migrations') as $migration) {
             (include $migration->getRealPath())->up();
         }
     }

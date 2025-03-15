@@ -23,16 +23,16 @@ class IdGeneratorFactory
         $havingArguments = match (DB::connection()->getDriverName()) {
             'sqlite' => [
                 "SUBSTR(max_id_without_prefix, 1, LENGTH(max_id_without_prefix) - {$suffixLength}) GLOB ?",
-                ['[0-9]*']
+                ['[0-9]*'],
             ],
             default => [
                 "SUBSTR(max_id_without_prefix, 1, LENGTH(max_id_without_prefix) - {$suffixLength}) REGEXP ?",
-                ['^[0-9]+$']
+                ['^[0-9]+$'],
             ]
         };
 
         $maxId = $model::query()
-            ->where($field, 'like', $prefix . '%' . $suffix)
+            ->where($field, 'like', $prefix.'%'.$suffix)
             ->select("{$field} as max_id")
             // Select max id without prefix  : (e.g CL-00001/2022 => 00001/2022)
             ->selectRaw("SUBSTR({$field}, {$prefixLength} + 1) as max_id_without_prefix")
@@ -54,7 +54,7 @@ class IdGeneratorFactory
 
         $nextStrippedId = (int) $strippedMaxId + 1;
 
-        return $prefix . Str::padLeft((string) $nextStrippedId, $paddingLength, '0') . $suffix;
+        return $prefix.Str::padLeft((string) $nextStrippedId, $paddingLength, '0').$suffix;
     }
 
     private function parseVariables(?string $value): ?string

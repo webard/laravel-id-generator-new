@@ -3,10 +3,10 @@
 namespace Omaressaouaf\LaravelIdGenerator\Tests\Unit;
 
 use Carbon\Carbon;
-use Omaressaouaf\LaravelIdGenerator\IdGenerator;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Omaressaouaf\LaravelIdGenerator\Tests\TestCase;
+use Omaressaouaf\LaravelIdGenerator\IdGenerator;
 use Omaressaouaf\LaravelIdGenerator\Tests\Models\TestModel;
+use Omaressaouaf\LaravelIdGenerator\Tests\TestCase;
 
 class IdGeneratorTest extends TestCase
 {
@@ -55,30 +55,30 @@ class IdGeneratorTest extends TestCase
         $this->assertEquals('INV-00001', $customId);
     }
 
-     public function test_it_replaces_date_variable(): void
-     {
-         Carbon::setTestNow('2025-02-28');
+    public function test_it_replaces_date_variable(): void
+    {
+        Carbon::setTestNow('2025-02-28');
 
-         $customId = IdGenerator::generate(TestModel::class, 'custom_id', 5, 'INV-', '-{DATE}');
+        $customId = IdGenerator::generate(TestModel::class, 'custom_id', 5, 'INV-', '-{DATE}');
 
-         $this->assertEquals('INV-00001-2025-02-28', $customId);
-     }
+        $this->assertEquals('INV-00001-2025-02-28', $customId);
+    }
 
-     public function test_it_replaces_month_variable(): void
-     {
-         Carbon::setTestNow('2025-02-28');
+    public function test_it_replaces_month_variable(): void
+    {
+        Carbon::setTestNow('2025-02-28');
 
-         $customId = IdGenerator::generate(TestModel::class, 'custom_id', 5, 'INV-', '-{MONTH}');
+        $customId = IdGenerator::generate(TestModel::class, 'custom_id', 5, 'INV-', '-{MONTH}');
 
-         $this->assertEquals('INV-00001-2025-02', $customId);
-     }
+        $this->assertEquals('INV-00001-2025-02', $customId);
+    }
 
-     public function test_it_replaces_year_variable(): void
-     {
-         Carbon::setTestNow('2025-02-28');
+    public function test_it_replaces_year_variable(): void
+    {
+        Carbon::setTestNow('2025-02-28');
 
-         $customId = IdGenerator::generate(TestModel::class, 'custom_id', 5, '{YEAR}-');
+        $customId = IdGenerator::generate(TestModel::class, 'custom_id', 5, '{YEAR}-');
 
-         $this->assertEquals('2025-00001', $customId);
-     }
+        $this->assertEquals('2025-00001', $customId);
+    }
 }

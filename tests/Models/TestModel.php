@@ -8,12 +8,12 @@ use Omaressaouaf\LaravelIdGenerator\Tests\Factories\TestModelFactory;
 
 class TestModel extends Model
 {
-  use HasFactory;
+    use HasFactory;
 
-  protected $guarded = [];
+    protected $guarded = [];
 
-  protected static function newFactory()
-  {
-    return TestModelFactory::new();
-  }
+    protected static function newFactory()
+    {
+        return TestModelFactory::new();
+    }
 }
