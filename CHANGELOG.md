@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `Bindify` will be documented in this file
+All notable changes to `Laravel ID Generator` will be documented in this file
 
 ## v1.0.1 - 2025-03-15
 
