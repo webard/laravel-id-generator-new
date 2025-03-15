@@ -12,6 +12,7 @@ body:
       attributes:
           label: What happened?
           description: Please explain what you expect to happen and what did happen instead.
+          placeholder: Please explain what you expect to happen and what did happen instead.
       validations:
           required: true
     - type: textarea
@@ -19,6 +20,7 @@ body:
       attributes:
           label: How to reproduce the bug?
           description: How did this occur, provide a set of reliable steps if possible.
+          placeholder: How did this occur, provide a set of reliable steps if possible.
       validations:
           required: true
     - type: input
