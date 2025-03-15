@@ -4,8 +4,12 @@
     "description": "Generate custom incremental unique ids for Laravel",
     "keywords": [
         "omaressaouaf",
+        "php",
         "laravel",
-        "laravel-id-generator"
+        "laravel-id-generator",
+        "id-generator",
+        "id-generation",
+        "increment-id"
     ],
     "type": "library",
     "homepage": "https://github.com/omaressaouaf/laravel-id-generator",
