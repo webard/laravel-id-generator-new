@@ -2,13 +2,14 @@
 
 namespace Omaressaouaf\LaravelIdGenerator;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class IdGeneratorFactory
 {
     public function generate(
-        string $model,
+        string $modelOrTable,
         string $field = 'id',
         int $paddingLength = 5,
         ?string $prefix = '',
@@ -19,6 +20,10 @@ class IdGeneratorFactory
 
         $prefixLength = strlen($prefix);
         $suffixLength = strlen($suffix);
+
+        $query = is_subclass_of($modelOrTable, Model::class)
+            ? $modelOrTable::query()
+            : DB::table($modelOrTable);
 
         $havingArguments = match (DB::connection()->getDriverName()) {
             'sqlite' => [
@@ -31,8 +36,8 @@ class IdGeneratorFactory
             ]
         };
 
-        $maxId = $model::query()
-            ->where($field, 'like', $prefix.'%'.$suffix)
+        $maxId = $query
+            ->where($field, 'like', $prefix . '%' . $suffix)
             ->select("{$field} as max_id")
             // Select max id without prefix  : (e.g CL-00001/2022 => 00001/2022)
             ->selectRaw("SUBSTR({$field}, {$prefixLength} + 1) as max_id_without_prefix")
@@ -54,7 +59,7 @@ class IdGeneratorFactory
 
         $nextStrippedId = (int) $strippedMaxId + 1;
 
-        return $prefix.Str::padLeft((string) $nextStrippedId, $paddingLength, '0').$suffix;
+        return $prefix . Str::padLeft((string) $nextStrippedId, $paddingLength, '0') . $suffix;
     }
 
     private function parseVariables(?string $value): ?string
