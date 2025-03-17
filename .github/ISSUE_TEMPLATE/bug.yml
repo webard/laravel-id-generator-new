@@ -45,9 +45,9 @@ body:
       validations:
         required: true
     - type: input
-      id: databse-driver-name
+      id: databse-driver
       attributes:
-        label: Database Driver Name
+        label: Database Driver
         placeholder: mysql
       validations:
         required: true
