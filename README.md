@@ -1,5 +1,5 @@
 
-# Laravel ID Generator Factory
+# Laravel ID Generator
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/omaressaouaf/laravel-id-generator.svg)](https://packagist.org/packages/omaressaouaf/laravel-id-generator)
 [![License](https://img.shields.io/github/license/omaressaouaf/laravel-id-generator)](LICENSE)
