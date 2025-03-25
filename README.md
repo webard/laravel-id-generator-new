@@ -64,7 +64,7 @@ return [
         'field' => 'number',
         'padding' => 5,
         'prefix' => 'INV-',
-        'suffix' => '{YEAR}'
+        'suffix' => '-{YEAR}'
     ],
     'receipts' => [
         'field' => 'number',
