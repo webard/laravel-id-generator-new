@@ -81,4 +81,13 @@ class IdGeneratorTest extends TestCase
 
         $this->assertEquals('2025-00001', $customId);
     }
+
+    public function test_it_generates_from_config(): void
+    {
+        TestModel::factory()->create(['custom_id' => 'TEST-00001']);
+
+        $customId = IdGenerator::generateFromConfig('test_models');
+
+        $this->assertEquals('TEST-00002', $customId);
+    }
 }

@@ -3,11 +3,33 @@
 namespace Omaressaouaf\LaravelIdGenerator;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Omaressaouaf\LaravelIdGenerator\Exceptions\InvalidGeneratorException;
 
 class IdGeneratorFactory
 {
+    public function generateFromConfig(string $generatorName): string
+    {
+        $config = config('laravel-id-generator.' . $generatorName);
+        if (!$config) {
+            throw new InvalidGeneratorException();
+        }
+
+        if (!Arr::has($config, ['field', 'padding', 'prefix', 'suffix'])) {
+            throw new InvalidGeneratorException();
+        }
+
+        return $this->generate(
+            $generatorName,
+            Arr::get($config, 'field'),
+            Arr::get($config, 'padding'),
+            Arr::get($config, 'prefix'),
+            Arr::get($config, 'suffix'),
+        );
+    }
+
     public function generate(
         string $modelOrTable,
         string $field = 'id',
