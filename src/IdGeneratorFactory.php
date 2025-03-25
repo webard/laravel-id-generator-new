@@ -17,16 +17,16 @@ class IdGeneratorFactory
             throw new InvalidGeneratorException();
         }
 
-        if (!Arr::has($config, ['field', 'padding', 'prefix', 'suffix'])) {
+        if (!Arr::has($config, 'field')) {
             throw new InvalidGeneratorException();
         }
 
         return $this->generate(
             $generatorName,
             Arr::get($config, 'field'),
-            Arr::get($config, 'padding'),
-            Arr::get($config, 'prefix'),
-            Arr::get($config, 'suffix'),
+            Arr::get($config, 'padding') ?? 5,
+            Arr::get($config, 'prefix') ?? '',
+            Arr::get($config, 'suffix') ?? '',
         );
     }
 

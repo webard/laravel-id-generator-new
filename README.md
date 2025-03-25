@@ -48,6 +48,39 @@ $id = IdGenerator::generate(Invoice::class, 'column_name', 5, 'INV-{YEAR}-');
 echo $id; // INV-2025-00001
 ```
 
+### Generators
+
+After installation, you can publish the package configuration file using:
+
+```bash
+php artisan vendor:publish --provider="Omaressaouaf\LaravelIdGenerator\LaravelIdGeneratorServiceProvider"
+```
+
+This will create a configuration file in `config/laravel-id-generator.php`, allowing you define custom generators for different tables or models.
+
+```php
+return [
+    Invoice::class => [
+        'field' => 'number',
+        'padding' => 5,
+        'prefix' => 'INV-',
+        'suffix' => '{YEAR}'
+    ],
+    'receipts' => [
+        'field' => 'number',
+        'padding' => 3,
+        'prefix' => 'RC-',
+    ]
+];
+```
+
+Then you can use the generator
+
+```php
+$id = IdGenerator::generateFromConfig(Invoice::class);
+echo $id; // INV-00001-2025
+```
+
 ---
 
 ## 🛠️ Testing
