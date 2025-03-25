@@ -2,12 +2,6 @@
 
 All notable changes to `Laravel ID Generator` will be documented in this file
 
-## v1.2.0 - 2025-03-25
-
-- Add support for generators from config
-
-**Full Changelog**: https://github.com/omaressaouaf/laravel-id-generator/compare/v1.0.1...v1.2.0
-
 ## v1.0.1 - 2025-03-20
 
 - Add support for passing table name or model class
