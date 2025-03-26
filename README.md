@@ -1,4 +1,3 @@
-
 # Laravel ID Generator
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/omaressaouaf/laravel-id-generator.svg)](https://packagist.org/packages/omaressaouaf/laravel-id-generator)
