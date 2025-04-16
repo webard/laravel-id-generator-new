@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        
         Schema::create('test_models', function (Blueprint $table) {
             $table->id();
             $table->string('custom_id');

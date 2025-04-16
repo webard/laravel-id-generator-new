@@ -16,10 +16,41 @@ class TestCase extends \Orchestra\Testbench\TestCase
 
     protected function getEnvironmentSetUp($app)
     {
-        config()->set('database.default', 'testing');
-        config()->set('database.connections.testing', [
+        config()->set('database.default', env('DB_CONNECTION', 'sqlite'));
+
+        config()->set('database.connections.sqlite', [
             'driver' => 'sqlite',
             'database' => ':memory:',
+            'prefix' => '',
+        ]);
+
+        config()->set('database.connections.mysql', [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => 3306,
+            'database' => 'laravel',
+            'username' => 'root',
+            'password' => '',
+            'prefix' => '',
+        ]);
+
+        config()->set('database.connections.mariadb', [
+            'driver' => 'mariadb',
+            'host' => '127.0.0.1',
+            'port' => 3306,
+            'database' => 'laravel',
+            'username' => 'root',
+            'password' => '',
+            'prefix' => '',
+        ]);
+
+        config()->set('database.connections.pgsql', [
+            'driver' => 'pgsql',
+            'host' => '127.0.0.1',
+            'port' => 5432,
+            'database' => 'laravel',
+            'username' => 'forge',
+            'password' => 'password',
             'prefix' => '',
         ]);
 
