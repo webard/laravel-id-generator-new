@@ -16,12 +16,41 @@ class TestCase extends \Orchestra\Testbench\TestCase
 
     protected function getEnvironmentSetUp($app)
     {
-        config()->set('database.default', 'testing');
-        config()->set('database.connections.testing', [
-            'driver' => env('DB_CONNECTION', 'sqlite'),
-            'database' => env('DB_DATABASE', 'laravel'),
-            'username' => env('DB_USERNAME', ''),
-            'password' => env('DB_PASSWORD', ''),
+        config()->set('database.default', env('DB_CONNECTION', 'sqlite'));
+
+        config()->set('database.connections.sqlite', [
+            'driver' => 'sqlite',
+            'database' => ':memory:',
+            'prefix' => '',
+        ]);
+
+        config()->set('database.connections.mysql', [
+            'driver' => 'mysql',
+            'host' => 'localhost',
+            'port' => 3306,
+            'database' => 'laravel',
+            'username' => 'root',
+            'password' => '',
+            'prefix' => '',
+        ]);
+
+        config()->set('database.connections.mariadb', [
+            'driver' => 'mariadb',
+            'host' => 'localhost',
+            'port' => 3306,
+            'database' => 'laravel',
+            'username' => 'root',
+            'password' => '',
+            'prefix' => '',
+        ]);
+
+        config()->set('database.connections.mariadb', [
+            'driver' => 'pgsql',
+            'host' => 'localhost',
+            'port' => 5432,
+            'database' => 'laravel',
+            'username' => 'forge',
+            'password' => 'password',
             'prefix' => '',
         ]);
 

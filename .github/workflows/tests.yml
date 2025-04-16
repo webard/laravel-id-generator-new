@@ -173,8 +173,6 @@ jobs:
         run: ./vendor/bin/phpunit
         env:
           DB_CONNECTION: pgsql
-          DB_USERNAME: forge
-          DB_PASSWORD: password
 
   mariadb:
     runs-on: ubuntu-latest
