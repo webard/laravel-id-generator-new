@@ -44,7 +44,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
             'prefix' => '',
         ]);
 
-        config()->set('database.connections.mariadb', [
+        config()->set('database.connections.pgsql', [
             'driver' => 'pgsql',
             'host' => '127.0.0.1',
             'port' => 5432,
