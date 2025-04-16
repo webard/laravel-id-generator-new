@@ -7,7 +7,7 @@ on:
       - master
 
 jobs:
-  test:
+  test_sqlite:
     runs-on: ubuntu-latest
 
     timeout-minutes: 5
@@ -36,3 +36,46 @@ jobs:
 
       - name: Execute tests
         run: ./vendor/bin/phpunit
+
+
+  test_mysql:
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 5
+
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [8.4, 8.3, 8.2]
+        dependency-version: [prefer-stable]
+
+    name: PHP:${{ matrix.php }}
+
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: laravel
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, mbstring, zip, mbstring, pdo, sqlite, pdo_sqlite
+          coverage: pcov
+
+      - name: Install dependencies
+        run:  composer install --no-interaction --prefer-dist --no-scripts
+
+      - name: Execute tests
+        run: ./vendor/bin/phpunit
+        env:
+             DB_CONNECTION: mysql
