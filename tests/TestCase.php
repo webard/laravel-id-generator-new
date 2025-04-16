@@ -18,8 +18,10 @@ class TestCase extends \Orchestra\Testbench\TestCase
     {
         config()->set('database.default', 'testing');
         config()->set('database.connections.testing', [
-            'driver' => 'sqlite',
-            'database' => ':memory:',
+            'driver' => env('DB_CONNECTION', 'sqlite'),
+            'database' => env('DB_DATABASE', 'laravel'),
+            'username' => env('DB_USERNAME', ''),
+            'password' => env('DB_PASSWORD', ''),
             'prefix' => '',
         ]);
 
